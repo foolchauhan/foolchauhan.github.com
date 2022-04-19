@@ -72,7 +72,7 @@
 	
 		<div class="fh5co-hero" data-section="home">
 			<div class="fh5co-overlay"></div>
-			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/cover_bg_1.jpg);">
+			<div class="fh5co-cover text-center" data-stellar-background-ratio="0.5" style="background-image: url(images/pics/cover_bg_1.jpg);">
 				<div class="display-t">
 					<div class="display-tc">
 						<div class="container">
@@ -91,20 +91,15 @@
 
 		<header id="fh5co-header-section" class="sticky-banner">
 			<div class="container">
-				<div class="nav-header">
+				<!-- <div class="nav-header">
 					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle dark"><i></i></a>
 					<h1 id="fh5co-logo"><a href="index.html">The Wedding</a></h1>
-					<!-- START #fh5co-menu-wrap -->
 					<nav id="fh5co-menu-wrap" role="navigation">
 						<ul class="sf-menu" id="fh5co-primary-menu">
-							<!-- <li class="active"><a href="index.html" >Home</a></li>
-								<li><a href="events.html">Events</a></li>
-								<li><a href="story.html">Story</a></li>
-								<li><a href="gallery.html">Gallery</a></li> -->
 							
 						</ul>
 					</nav>
-				</div>
+				</div> -->
 			</div>
 		</header>
 
@@ -177,7 +172,7 @@
 		<div id="fh5co-when-where" class="fh5co-section-gray">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-8 col-md-offset-2 text-center heading-section animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center heading-section">
 						<h2>Wedding Events</h2>
 					</div>
 				</div>
@@ -186,9 +181,9 @@
 						<div class="wedding-events">
 							<div class="ceremony-bg" style="background-image: url(images/wed-ceremony.jpg);"></div>
 							<div class="desc">
-								<h3>Akad Nikah</h3>
-								<p><strong>Jum'at, March 11, 2023, 6.30 - 9.00 WIB</strong></p>
-								<p>Tempat : Masjid Juanda TNI AL.<br>Jalan Brantas No. 2, Betro, Sedati, Sidoarjo.</p>
+								<h3>The Wedding</h3>
+								<p><strong>Evening, March 11, 2023, 6.30 - 9.00 WIB</strong></p>
+								<p>Address : Colony No 1 <br>Katihar, Bihar</p>
 							</div>
 						</div>
 					</div>
@@ -196,14 +191,23 @@
 						<div class="wedding-events">
 							<div class="ceremony-bg" style="background-image: url(images/wed-party.jpg);"></div>
 							<div class="desc">
-								<h3>Walimatul 'Ursy</h3>
-								<p><strong>Minggu, March 11, 2023, 10.00 - 15.00 WIB </strong></p>
-								<p>Tempat : Wisma Perwira TNI AL.<br>Jalan Raya Juanda, Betro, Sedati, Sidoarjo.</p>
+								<h3>Reception Party</h3>
+								<p><strong>March 13, 2023, 10.00 - 15.00 WIB </strong></p>
+								<p>Chunapur Road, Madhubani.<br>Purnia, Bihar, 854301</p>
 								<p></p>
 							</div>
 						</div>
 					</div>
 				</div>
+
+
+				<div class="row">
+					<div class="col-md-12">
+						<div id="map" class="fh5co-map"></div>
+					</div>
+				</div>
+
+
 			</div>
 		</div>
 		<!-- Events - End -->
@@ -313,10 +317,40 @@
 	<!-- END fh5co-wrapper -->
 
 	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7FJT1kUVYyHjsLJdw9ZPxlRGnxlD12A8&sensor=false"></script>
 	<!-- jQuery -->
 	<script src="dist/scripts.min.js"></script>
-	
+	<script type="text/javascript">
+    var locations = [
+      ['<h4>Wedding Venue</h4><p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp&nbsp<a href="https://goo.gl/maps/1pjsZC28Tx9RTLHWA"><strong>[ Get Direction Now ]</strong></p></a><p>Walimatul Ursy, Wisma Perwira<i class="fa fa-phone" aria-hidden="true"></i>&nbsp&nbsp', 25.540640, 87.578599, 19],
+	['<h4>Wedding Venue</h4><p><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp&nbsp<a href="https://goo.gl/maps/1pjsZC28Tx9RTLHWA"><strong>[ Get Direction Now ]</strong></p></a><p>Akad Nikah, Masjid Juanda<i class="fa fa-phone" aria-hidden="true"></i>&nbsp&nbsp', 25.540640, 87.578599, 19],
+	];
+
+var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 17,
+    scrollwheel: false,
+    center: new google.maps.LatLng(25.540640,87.578599),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+});
+
+var infowindow = new google.maps.InfoWindow();
+
+var marker, i;
+
+for (i = 0; i < locations.length; i++) {
+    marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infowindow.setContent(locations[i][0]);
+            infowindow.open(map, marker);
+        }
+    })(marker, i));
+}
+    </script>
 		<audio autoplay loop>
   <source src="sound/backsound.mp3" type="audio/ogg">
   <source src="sound/backsound.mp3" type="audio/mpeg">
