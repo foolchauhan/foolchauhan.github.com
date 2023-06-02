@@ -4,7 +4,7 @@
 }
 </style>
 
-## $\textcolor{yellow}{This\ is\ a\ Big\ Title}$
+## $\textcolor{red}{This\ is\ a\ Big\ Title}$
 <h1 style="color:red;">Classification of patterns</h1>
 
 <p>The most basic and low-level patterns are often called <i>idioms</i>. They usually apply only to a single programming language.</p>
