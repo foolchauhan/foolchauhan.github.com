@@ -2,7 +2,7 @@ Happy Birthday
 
 A Happy Birthday animation design in CSS3, HTML5.
 
-URL: http://foolchauhan.github.io/docs/happybirthdayjuhi/
+URL: http://foolchauhan.github.io/docs/happybirthdaykomal/
 
 Technology Used: HTML5 CSS3 jQuery  GNU/Linux Digital Ocean as VPS GIMP
 
